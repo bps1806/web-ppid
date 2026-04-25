@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Penyesuaian untuk TinyMCE/Iframe Wrapper dengan CSS Tabs (No-JS) -->
+    <div id="ppid-bps-profile-wrapper" class="antialiased text-slate-800 bg-[#f8fafc] p-4 md:p-8">
+      <!-- Load Dependencies inside the div for iframe compatibility -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+      <style>
+        #ppid-bps-profile-wrapper {
+          font-family:
+            'Inter',
+            system-ui,
+            -apple-system,
+            sans-serif;
+          --bps-blue: #043277;
+          --bps-orange: #f7941d;
+        }
+
+        /* CSS Tabs Logic */
+        .tab-content {
+          display: none;
+        }
+        #tab-kepala:checked ~ .content-kepala {
+          display: block;
+        }
+        #tab-kasubbag:checked ~ .content-kasubbag {
+          display: block;
+        }
+
+        /* Styling Label Tab */
+        .tab-label {
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-bottom: 3px solid transparent;
+        }
+        #tab-kepala:checked ~ .tab-nav label[for='tab-kepala'],
+        #tab-kasubbag:checked ~ .tab-nav label[for='tab-kasubbag'] {
+          color: var(--bps-blue);
+          border-bottom-color: var(--bps-orange);
+          font-weight: 700;
+        }
+
+        .profile-card-shadow {
+          border-top: 5px solid var(--bps-orange);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .section-line::after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 3px;
+          background: var(--bps-orange);
+          margin-top: 4px;
+        }
+        .btn-hover-effect:hover {
+          background-color: #e68512;
+          transform: translateY(-1px);
+        }
+      </style>
+
+      <div class="max-w-5xl mx-auto">
+        <!-- Radio Inputs (Hidden) -->
+        <input type="radio" name="profile-tabs" id="tab-kepala" class="hidden" checked />
+        <input type="radio" name="profile-tabs" id="tab-kasubbag" class="hidden" />
+
+        <!-- Navigasi Tab -->
+        <div class="tab-nav flex space-x-8 mb-8 border-b border-slate-200">
+          <label for="tab-kepala" class="tab-label pb-3 text-sm text-slate-500 uppercase tracking-wider font-bold">Kepala BPS</label>
+          <label for="tab-kasubbag" class="tab-label pb-3 text-sm text-slate-500 uppercase tracking-wider font-bold">Kasubbag Umum</label>
+        </div>
+
+        <!-- KONTEN TAB 1: KEPALA BPS -->
+        <div class="tab-content content-kepala animate-fadeIn">
+          <div class="flex flex-col md:flex-row gap-8">
+            <!-- Kolom Kiri -->
+            <div class="w-full md:w-1/3">
+              <div class="bg-white rounded-2xl p-5 profile-card-shadow text-center">
+                <div class="relative mb-5 inline-block w-full">
+                  <img src="img/jua_mahardhika.png" alt="Jua Mahardhika" class="rounded-xl w-full object-cover aspect-[3/4] shadow-md border-4 border-white" onerror="this.src = 'https://via.placeholder.com/400x533?text=Foto+Kepala+BPS'" />
+                </div>
+                <h2 class="text-lg font-bold leading-tight uppercase">Jua Mahardhika, S.ST., M.M.</h2>
+                <p class="text-blue-800 font-semibold text-sm mt-1 mb-4">Kepala BPS Kab. Lampung Utara</p>
+                <div class="space-y-3 text-left border-t pt-5">
+                  <div class="flex items-center space-x-3 text-xs">
+                    <i class="fa-solid fa-id-card text-orange-500 w-4"></i>
+                    <span class="text-slate-500">NIP: 198XXXXXXXXXXXXXXX</span>
+                  </div>
+                  <div class="flex items-center space-x-3 text-xs">
+                    <i class="fa-solid fa-location-dot text-orange-500 w-4"></i>
+                    <span class="text-slate-500 text-left leading-tight">Gedung Utama, Lt. 1</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <a href="https://elhkpn.kpk.go.id" target="_blank" class="btn-hover-effect flex items-center justify-center w-full bg-[#f7941d] text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-200">
+                  <i class="fa-solid fa-file-contract mr-2"></i>
+                  LHKPN KEPALA
+                </a>
+              </div>
+            </div>
+            <!-- Kolom Kanan -->
+            <div class="w-full md:w-2/3 space-y-6">
+              <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 section-line mb-5">Biografi Singkat</h3>
+                <div class="text-sm text-slate-600 leading-relaxed space-y-4">
+                  <p>
+                    Lahir di
+                    <strong>Blora pada 9 Desember 1979</strong>
+                    , Jua Mahardhika mendedikasikan perjalanan profesionalnya di dunia data sejak menamatkan studi Diploma IV di
+                    <strong>Sekolah Tinggi Ilmu Statistik (STIS)</strong>
+                    pada tahun 2002. Pendidikan tingginya kemudian disempurnakan dengan gelar
+                    <strong>Magister dari Universitas Lampung</strong>
+                    pada 2016
+                  </p>
+                  <p>
+                    Kariernya merupakan potret dedikasi panjang di Bumi Ruwa Jurai, dimulai dari
+                    <strong>BPS Tulang Bawang (2002-2004)</strong>
+                    hingga berkarir di
+                    <strong>BPS Provinsi Lampung (2004-2007)</strong>
+                    . Setelah malang melintang sebagai Kepala Seksi Statistik di
+                    <strong>BPS Kota Bandar Lampung (2007-2009)</strong>
+                    , kemudian menduduki jabatan strategis di BPS Provinsi Lampung sebagai Kepala Seksi
+                    <strong>Statistik Niaga dan Jasa (2009-2011)</strong>
+                    , Kepala Seksi
+                    <strong>Statistik Harga Konsumen dan Harga Perdagangan Besar (2011-2016)</strong>
+                    , Kepala Seksi
+                    <strong>Jaringan dan Rujukan Statistik (2016-2020)</strong>
+                    , dan
+                    <strong>Fungsional Ahli Madya (2020-2023)</strong>
+                    beliau dipercaya mengemban amanah sebagai
+                    <strong>Kepala BPS Kabupaten Way Kanan (2023-2026)</strong>
+                    . Kini, terhitung sejak Maret 2026, beliau melanjutkan kepemimpinannya sebagai
+                    <strong>Kepala BPS Kabupaten Lampung Utara</strong>
+                    , membawa pengalaman dua dekade untuk memajukan kualitas statistik di wilayah ini
+                  </p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-blue-900 text-white p-5 rounded-2xl shadow-md">
+                  <h4 class="text-xs font-bold uppercase tracking-widest opacity-70 mb-2">Pendidikan</h4>
+                  <p class="text-sm font-bold">Magister Manajemen</p>
+                  <p class="text-sm font-bold">SST. Statistika (STIS)</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center flex items-center justify-center">
+                  <p class="text-xs text-slate-500 italic">"Data Akurat, Kebijakan Tepat."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KONTEN TAB 2: KASUBBAG UMUM -->
+        <div class="tab-content content-kasubbag animate-fadeIn">
+          <div class="flex flex-col md:flex-row gap-8">
+            <!-- Kolom Kiri -->
+            <div class="w-full md:w-1/3">
+              <div class="bg-white rounded-2xl p-5 profile-card-shadow text-center">
+                <div class="relative mb-5 inline-block w-full">
+                  <!-- Placeholder Foto Wanita -->
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+                    alt="Devie Triana Sari"
+                    class="rounded-xl w-full object-cover aspect-[3/4] shadow-md border-4 border-white"
+                    onerror="this.src = 'https://via.placeholder.com/400x533?text=Foto+Kasubbag+Umum'"
+                  />
+                </div>
+                <h2 class="text-lg font-bold leading-tight uppercase">Devie Triana Sari, S.Si., M.P.W.K.</h2>
+                <p class="text-blue-800 font-semibold text-sm mt-1 mb-4">Kasubbag Umum BPS Kab. Lampung Utara</p>
+                <div class="space-y-3 text-left border-t pt-5">
+                  <div class="flex items-center space-x-3 text-xs">
+                    <i class="fa-solid fa-id-card text-orange-500 w-4"></i>
+                    <span class="text-slate-500">NIP: 198XXXXXXXXXXXXXXX</span>
+                  </div>
+                  <div class="flex items-center space-x-3 text-xs">
+                    <i class="fa-solid fa-location-dot text-orange-500 w-4"></i>
+                    <span class="text-slate-500 text-left leading-tight">Ruang Tata Usaha, Lt. 1</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <a href="https://elhkpn.kpk.go.id" target="_blank" class="btn-hover-effect flex items-center justify-center w-full bg-[#f7941d] text-white py-3 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-200">
+                  <i class="fa-solid fa-file-contract mr-2"></i>
+                  LHKPN KASUBBAG
+                </a>
+              </div>
+            </div>
+            <!-- Kolom Kanan -->
+            <div class="w-full md:w-2/3 space-y-6">
+              <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 section-line mb-5">Profil Kasubbag Umum</h3>
+                <div class="text-sm text-slate-600 leading-relaxed space-y-4">
+                  <p>
+                    <strong>Ibu Devie Triana Sari, S.Si., M.P.W.K.</strong>
+                    bertanggung jawab atas manajemen internal, kepegawaian, dan sarana prasarana di BPS Kabupaten Lampung Utara.
+                  </p>
+                  <p>
+                    Dengan latar belakang pendidikan
+                    <strong>Magister Perencanaan Wilayah dan Kota (M.P.W.K.)</strong>
+                    , beliau memastikan operasional kantor berjalan efisien guna mendukung kelancaran seluruh kegiatan sensus dan survei statistik di lapangan.
+                  </p>
+                  <p>Fokus utama beliau adalah pengembangan sumber daya manusia dan peningkatan kualitas layanan administrasi internal demi tercapainya target organisasi yang optimal.</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-blue-900 text-white p-5 rounded-2xl shadow-md">
+                  <h4 class="text-xs font-bold uppercase tracking-widest opacity-70 mb-2">Pendidikan</h4>
+                  <p class="text-sm font-bold">M.P.W.K. (Perencanaan Wilayah)</p>
+                  <p class="text-sm font-bold">Sarjana Sains (S.Si.)</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center flex items-center justify-center">
+                  <p class="text-xs text-slate-500 italic text-center">"Pelayanan Internal Prima untuk Data Berkualitas."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bersama -->
+        <div class="mt-8 flex items-center justify-between px-4 py-3 bg-slate-100 rounded-lg">
+          <div class="flex items-center space-x-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Badge_of_the_Indonesian_Central_Bureau_of_Statistics.svg" class="h-5 opacity-40 grayscale" alt="BPS Logo" />
+            <span class="text-[10px] font-bold text-slate-400 uppercase">PPID BPS LAMPUNG UTARA</span>
+          </div>
+          <span class="text-[10px] text-slate-400 font-medium italic">#ProfesionalIntegritasAmanah</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
