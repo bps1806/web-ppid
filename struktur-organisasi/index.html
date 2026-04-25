@@ -141,7 +141,7 @@
       }
 
       /* Content Area */
-      .collapsible-content {
+      /* .collapsible-content {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.5s ease-in-out;
@@ -155,18 +155,18 @@
       }
 
       .collapsible-content.open {
-        max-height: 2000px;
+        max-height: 2000px; 
         padding: 20px;
         margin-top: 15px;
         border: 1px dashed var(--line-color);
-      }
+      } */
 
       /* Kartu Staf */
       .staff-card {
         background: white;
         border-radius: 10px;
         padding: 12px;
-        width: 240px;
+        width: 80%;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -195,6 +195,75 @@
         margin: 2px 0 0;
         font-size: 10px;
         color: #636e72;
+      }
+
+      /* Menghilangkan panah bawaan browser */
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary {
+        list-style: none;
+        outline: none;
+      }
+
+      /* Gaya tombol toggle (Summary) */
+      .section-toggle {
+        width: 260px;
+        background: #003366; /* Warna Biru BPS */
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        margin: 0 auto;
+      }
+
+      /* Gaya saat menu terbuka */
+      details[open] .section-toggle {
+        background: #ff6600; /* Berubah jadi oranye saat terbuka */
+      }
+
+      details[open] .section-toggle span {
+        transform: rotate(180deg);
+      }
+
+      /* Konten yang muncul di bawahnya */
+      .collapsible-content {
+        /* display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+        margin-top: 10px;
+        border: 1px dashed #ccd1d9;
+        border-radius: 15px;
+        background: rgba(240, 240, 240, 0.2);
+         */
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 15px;
+        padding: 20px;
+        margin-top: 10px;
+        border: 1px dashed #ccd1d9;
+        border-radius: 15px;
+        background: rgba(240, 240, 240, 0.2); */
+        display: grid;
+        /* Paksa selalu 2 kolom */
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 15px; /* Kurangi padding sedikit agar ruang konten lebih luas */
+        margin-top: 10px;
+        border: 1px dashed #ccd1d9;
+        border-radius: 15px;
+        background: rgba(240, 240, 240, 0.2);
+        width: 100%;
+        box-sizing: border-box;
       }
     </style>
   </head>
@@ -229,289 +298,293 @@
 
           <!-- Garis dari Kasubbag ke Subbag Umum -->
           <div class="connector-vertical"></div>
-          <button class="section-toggle" onclick="toggleSection('umum')">
-            JABATAN FUNGSIONAL SUBBAG UMUM
-            <span class="icon">▼</span>
-          </button>
-          <div id="section-umum" class="collapsible-content">
-            <!-- Isi disini -->
-            <!-- Aria Jaya Atmaja -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/arya.jaya.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Aria Jaya Atmaja</h5>
-                <p class="nip">NIP. 197505072006041019</p>
-                <p>Fungsional Umum Subbag Umum</p>
+
+          <details class="section-container">
+            <summary class="section-toggle">
+              SUB BAGIAN UMUM
+              <span>▼</span>
+            </summary>
+            <div class="collapsible-content">
+              <!-- Isi disini -->
+              <!-- Aria Jaya Atmaja -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/arya.jaya.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Aria Jaya Atmaja</h5>
+                  <p class="nip">NIP. 197505072006041019</p>
+                  <p>Fungsional Umum Subbag Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Sujito, SE -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/sujito.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Sujito, SE</h5>
-                <p class="nip">NIP. 197005121992031001</p>
-                <p>Fungsional Umum Subbag Umum</p>
+              <!-- Sujito, SE -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/sujito.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Sujito, SE</h5>
+                  <p class="nip">NIP. 197005121992031001</p>
+                  <p>Fungsional Umum Subbag Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Jemali -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/jemali-ppk.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Jemali</h5>
-                <p class="nip">NIP. 197205062025211028</p>
-                <p>Staf Subbag Umum</p>
+              <!-- Jemali -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/jemali-ppk.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Jemali</h5>
+                  <p class="nip">NIP. 197205062025211028</p>
+                  <p>Staf Subbag Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Marthadinata -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/marthadinata-ppk.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Marthadinata</h5>
-                <p class="nip">NIP. 198503142025211026</p>
-                <p>Staf Subbag Umum</p>
+              <!-- Marthadinata -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/marthadinata-ppk.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Marthadinata</h5>
+                  <p class="nip">NIP. 198503142025211026</p>
+                  <p>Staf Subbag Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Muhammad Okky Taufik -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/okkytaufik-ppk.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Muhammad Okky Taufik</h5>
-                <p class="nip">NIP. 199610082025211033</p>
-                <p>Staf Subbag Umum</p>
+              <!-- Muhammad Okky Taufik -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/okkytaufik-ppk.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Muhammad Okky Taufik</h5>
+                  <p class="nip">NIP. 199610082025211033</p>
+                  <p>Staf Subbag Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Rismawati -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/rismawati-ppk.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Rismawati</h5>
-                <p class="nip">NIP. 199904212025212020</p>
-                <p>Staf Subbag Umum</p>
+              <!-- Rismawati -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/rismawati-ppk.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Rismawati</h5>
+                  <p class="nip">NIP. 199904212025212020</p>
+                  <p>Staf Subbag Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Yudairi Jaka Saputra -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/yudairijaka-ppk.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Yudairi Jaka Saputra</h5>
-                <p class="nip">NIP. 199004242025211067</p>
-                <p>Staf Subbag Umum</p>
+              <!-- Yudairi Jaka Saputra -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/yudairijaka-ppk.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Yudairi Jaka Saputra</h5>
+                  <p class="nip">NIP. 199004242025211067</p>
+                  <p>Staf Subbag Umum</p>
+                </div>
               </div>
+              <!-- Sampai sini -->
             </div>
-            <!-- Sampai sini -->
-          </div>
+          </details>
         </div>
 
         <!-- CABANG KANAN: FUNGSIONAL -->
         <div class="branch">
           <div class="connector-vertical"></div>
-          <button class="section-toggle" onclick="toggleSection('fungsional')" style="margin-top: 0; width: 280px; height: 60px; font-size: 14px">
-            JABATAN FUNGSIONAL
-            <span class="icon">▼</span>
-          </button>
-
-          <div id="section-fungsional" class="collapsible-content">
-            <!-- Isi Disini -->
-            <!-- Siswanto, SST -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/siswanto.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Siswanto, SST</h5>
-                <p class="nip">NIP. 197603121997121001</p>
-                <p>Statistisi Madya</p>
+          <details class="section-container">
+            <summary class="section-toggle">
+              JABATAN FUNGSIONAL
+              <span>▼</span>
+            </summary>
+            <div class="collapsible-content">
+              <!-- Isi Disini -->
+              <!-- Siswanto, SST -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/siswanto.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Siswanto, SST</h5>
+                  <p class="nip">NIP. 197603121997121001</p>
+                  <p>Statistisi Madya</p>
+                </div>
               </div>
-            </div>
-            <!-- Romli Afandi, S.Si. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/romli.afandi.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Romli Afandi, S.Si.</h5>
-                <p class="nip">NIP. 197808022011011004</p>
-                <p>APKAPBN Muda</p>
+              <!-- Romli Afandi, S.Si. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/romli.afandi.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Romli Afandi, S.Si.</h5>
+                  <p class="nip">NIP. 197808022011011004</p>
+                  <p>APKAPBN Muda</p>
+                </div>
               </div>
-            </div>
-            <!-- Muhammad Charridho, SST -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/charrido.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Muhammad Charridho, SST</h5>
-                <p class="nip">NIP. 198606022009021002</p>
-                <p>Statistisi Muda</p>
+              <!-- Muhammad Charridho, SST -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/charrido.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Muhammad Charridho, SST</h5>
+                  <p class="nip">NIP. 198606022009021002</p>
+                  <p>Statistisi Muda</p>
+                </div>
               </div>
-            </div>
-            <!-- Siectio Dicko Pratama, SST., M.Sc. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/siectio_dicko.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Siectio Dicko Pratama, SST., M.Sc.</h5>
-                <p class="nip">NIP. 199110312014101002</p>
-                <p>Statistisi Muda</p>
+              <!-- Siectio Dicko Pratama, SST., M.Sc. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/siectio_dicko.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Siectio Dicko Pratama, SST., M.Sc.</h5>
+                  <p class="nip">NIP. 199110312014101002</p>
+                  <p>Statistisi Muda</p>
+                </div>
               </div>
-            </div>
-            <!-- Gusmalia Sari, SE -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/gusmalia.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Gusmalia Sari, SE</h5>
-                <p class="nip">NIP. 198308242005022001</p>
-                <p>Statistisi Muda</p>
+              <!-- Gusmalia Sari, SE -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/gusmalia.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Gusmalia Sari, SE</h5>
+                  <p class="nip">NIP. 198308242005022001</p>
+                  <p>Statistisi Muda</p>
+                </div>
               </div>
-            </div>
-            <!-- Hanik Devianingrum, SST -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/hanik.devianingrum.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Hanik Devianingrum, SST</h5>
-                <p class="nip">NIP. 199203052014122001</p>
-                <p>Statistisi Muda</p>
+              <!-- Hanik Devianingrum, SST -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/hanik.devianingrum.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Hanik Devianingrum, SST</h5>
+                  <p class="nip">NIP. 199203052014122001</p>
+                  <p>Statistisi Muda</p>
+                </div>
               </div>
-            </div>
-            <!-- Vivi Handayanti, SST -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/vivi.handayanti.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Vivi Handayanti, SST</h5>
-                <p class="nip">NIP. 199202012014122001</p>
-                <p>Statistisi Muda</p>
+              <!-- Vivi Handayanti, SST -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/vivi.handayanti.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Vivi Handayanti, SST</h5>
+                  <p class="nip">NIP. 199202012014122001</p>
+                  <p>Statistisi Muda</p>
+                </div>
               </div>
-            </div>
-            <!-- Adi Irawan, S.E. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/irawan.adi.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Adi Irawan, S.E.</h5>
-                <p class="nip">NIP. 197704142007011002</p>
-                <p>Statistisi Pertama</p>
+              <!-- Adi Irawan, S.E. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/irawan.adi.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Adi Irawan, S.E.</h5>
+                  <p class="nip">NIP. 197704142007011002</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Andries Siregar, SP -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/andries.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Andries Siregar, SP</h5>
-                <p class="nip">NIP. 197904172011011011</p>
-                <p>Statistisi Pertama</p>
+              <!-- Andries Siregar, SP -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/andries.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Andries Siregar, SP</h5>
+                  <p class="nip">NIP. 197904172011011011</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Darwin Amri, S.P. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/amri.darwin.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Darwin Amri, S.P.</h5>
-                <p class="nip">NIP. 198508292011011007</p>
-                <p>Statistisi Pertama</p>
+              <!-- Darwin Amri, S.P. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/amri.darwin.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Darwin Amri, S.P.</h5>
+                  <p class="nip">NIP. 198508292011011007</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Devi Novanti, S.Tr.Stat. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/devinovanti.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Devi Novanti, S.Tr.Stat.</h5>
-                <p class="nip">NIP. 199911272022012002</p>
-                <p>Statistisi Pertama</p>
+              <!-- Devi Novanti, S.Tr.Stat. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/devinovanti.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Devi Novanti, S.Tr.Stat.</h5>
+                  <p class="nip">NIP. 199911272022012002</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Dita Regi Kartika, S.Tr.Stat -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/dita.kartika.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Dita Regi Kartika, S.Tr.Stat</h5>
-                <p class="nip">NIP. 199707062019122001</p>
-                <p>Statistisi Pertama</p>
+              <!-- Dita Regi Kartika, S.Tr.Stat -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/dita.kartika.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Dita Regi Kartika, S.Tr.Stat</h5>
+                  <p class="nip">NIP. 199707062019122001</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Hana Fitianingrum, S.Si. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/hana.fitia.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Hana Fitianingrum, S.Si.</h5>
-                <p class="nip">NIP. 199103112019032002</p>
-                <p>Statistisi Pertama</p>
+              <!-- Hana Fitianingrum, S.Si. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/hana.fitia.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Hana Fitianingrum, S.Si.</h5>
+                  <p class="nip">NIP. 199103112019032002</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Ismail Yusuf, SE -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/ismail.yusuf.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Ismail Yusuf, SE</h5>
-                <p class="nip">NIP. 198612252011011010</p>
-                <p>Statistisi Pertama</p>
+              <!-- Ismail Yusuf, SE -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/ismail.yusuf.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Ismail Yusuf, SE</h5>
+                  <p class="nip">NIP. 198612252011011010</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Nur Ika Septiana, S.Stat -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/ika.septiana.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Nur Ika Septiana, S.Stat</h5>
-                <p class="nip">NIP. 199109142022032007</p>
-                <p>Statistisi Pertama</p>
+              <!-- Nur Ika Septiana, S.Stat -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/ika.septiana.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Nur Ika Septiana, S.Stat</h5>
+                  <p class="nip">NIP. 199109142022032007</p>
+                  <p>Statistisi Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Rizquna Nurul Fatihah, S.Tr.Stat. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/rizquna.nurul.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Rizquna Nurul Fatihah, S.Tr.Stat.</h5>
-                <p class="nip">NIP. 200106012024122003</p>
-                <p>Prakom Pertama</p>
+              <!-- Rizquna Nurul Fatihah, S.Tr.Stat. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/rizquna.nurul.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Rizquna Nurul Fatihah, S.Tr.Stat.</h5>
+                  <p class="nip">NIP. 200106012024122003</p>
+                  <p>Prakom Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Tubagus Langlang Purwasasmita, S.Tr.Stat. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/langlangpurwa.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Tubagus Langlang Purwasasmita, S.Tr.Stat.</h5>
-                <p class="nip">NIP. 200010292023021002</p>
-                <p>Prakom Pertama</p>
+              <!-- Tubagus Langlang Purwasasmita, S.Tr.Stat. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/langlangpurwa.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Tubagus Langlang Purwasasmita, S.Tr.Stat.</h5>
+                  <p class="nip">NIP. 200010292023021002</p>
+                  <p>Prakom Pertama</p>
+                </div>
               </div>
-            </div>
-            <!-- Muhammad Renaldi Syarief, A.Md.Stat. -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/renaldisyarief.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Muhammad Renaldi Syarief, A.Md.Stat.</h5>
-                <p class="nip">NIP. 200107202023021002</p>
-                <p>Statistisi Terampil</p>
+              <!-- Muhammad Renaldi Syarief, A.Md.Stat. -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/renaldisyarief.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Muhammad Renaldi Syarief, A.Md.Stat.</h5>
+                  <p class="nip">NIP. 200107202023021002</p>
+                  <p>Statistisi Terampil</p>
+                </div>
               </div>
-            </div>
-            <!-- Agustini -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/agustini.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Agustini</h5>
-                <p class="nip">NIP. 196808181994032006</p>
-                <p>Fungsional Umum</p>
+              <!-- Agustini -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/agustini.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Agustini</h5>
+                  <p class="nip">NIP. 196808181994032006</p>
+                  <p>Fungsional Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Radius Agus Sumarlin -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/radius.as.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Radius Agus Sumarlin</h5>
-                <p class="nip">NIP. 198508082006041005</p>
-                <p>Fungsional Umum</p>
+              <!-- Radius Agus Sumarlin -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/radius.as.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Radius Agus Sumarlin</h5>
+                  <p class="nip">NIP. 198508082006041005</p>
+                  <p>Fungsional Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Ruder Yusepha Ali -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/ruder.yusepha.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Ruder Yusepha Ali</h5>
-                <p class="nip">NIP. 197409102007012001</p>
-                <p>Fungsional Umum</p>
+              <!-- Ruder Yusepha Ali -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/ruder.yusepha.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Ruder Yusepha Ali</h5>
+                  <p class="nip">NIP. 197409102007012001</p>
+                  <p>Fungsional Umum</p>
+                </div>
               </div>
-            </div>
-            <!-- Nur Hanifah Miftahul Jannah, S.Tr.Stat -->
-            <div class="staff-card">
-              <img src="img/pegawai1806/nurhanifah.png" class="avatar-sm" />
-              <div class="info">
-                <h5>Nur Hanifah Miftahul Jannah, S.Tr.Stat</h5>
-                <p class="nip">NIP. 200211122026032001</p>
-                <p>Staf BPS</p>
+              <!-- Nur Hanifah Miftahul Jannah, S.Tr.Stat -->
+              <div class="staff-card">
+                <img src="img/pegawai1806/nurhanifah.png" class="avatar-sm" />
+                <div class="info">
+                  <h5>Nur Hanifah Miftahul Jannah, S.Tr.Stat</h5>
+                  <p class="nip">NIP. 200211122026032001</p>
+                  <p>Staf BPS</p>
+                </div>
               </div>
+              <!-- Sampai Sini -->
             </div>
-            <!-- Sampai Sini -->
-          </div>
+          </details>
         </div>
       </div>
     </div>
