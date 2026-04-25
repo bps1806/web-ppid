@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Struktur Organisasi BPS Lampung Utara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bps-blue: #003366;
+        --bps-orange: #ff6600;
+        --line-color: #ccd1d9;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: transparent;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Kartu Pegawai */
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        width: 260px;
+        text-align: center;
+        border: 2px solid #eee;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--bps-orange);
+        box-shadow: 0 8px 25px rgba(255, 102, 0, 0.1);
+      }
+
+      .avatar-lg {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        margin: 0 auto 12px;
+        border: 3px solid var(--bps-orange);
+        object-fit: cover;
+      }
+
+      h4 {
+        margin: 10px 0 5px;
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .nip {
+        font-size: 11px;
+        color: var(--bps-orange);
+        font-weight: 600;
+        margin: 0;
+      }
+      .role {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--bps-blue);
+        margin-top: 5px;
+        text-transform: uppercase;
+      }
+
+      /* Sistem Garis Hirarki */
+      .connector-vertical {
+        width: 2px;
+        height: 30px;
+        background: var(--line-color);
+      }
+
+      .connector-horizontal-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 60%; /* Lebar rentang cabang */
+        position: relative;
+      }
+
+      .connector-horizontal {
+        width: 100%;
+        height: 2px;
+        background: var(--line-color);
+      }
+
+      .branch-container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      .branch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+      }
+
+      /* Toggle Section */
+      .section-toggle {
+        width: 260px;
+        background: var(--bps-blue);
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        transition: background 0.3s;
+        border: none;
+        z-index: 2;
+      }
+
+      .section-toggle:hover {
+        background: #004080;
+      }
+      .section-toggle .icon {
+        transition: transform 0.3s;
+      }
+      .section-toggle.active .icon {
+        transform: rotate(180deg);
+      }
+
+      /* Content Area */
+      .collapsible-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        background: rgba(240, 240, 240, 0.3);
+        border-radius: 15px;
+      }
+
+      .collapsible-content.open {
+        max-height: 2000px;
+        padding: 20px;
+        margin-top: 15px;
+        border: 1px dashed var(--line-color);
+      }
+
+      /* Kartu Staf */
+      .staff-card {
+        background: white;
+        border-radius: 10px;
+        padding: 12px;
+        width: 240px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+      }
+
+      .staff-card:hover {
+        transform: scale(1.03);
+        border-color: var(--bps-orange);
+      }
+
+      .avatar-sm {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #ddd;
+      }
+      .info h5 {
+        margin: 0;
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .info p {
+        margin: 2px 0 0;
+        font-size: 10px;
+        color: #636e72;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- KEPALA -->
+      <div class="card">
+        <img src="img/pegawai1806/jua_mahardhika.png" class="avatar-lg" alt="Kepala BPS" />
+        <h4>Jua Mahardhika, SST. MM.</h4>
+        <p class="nip">NIP. 197912092002121001</p>
+        <p class="role">KEPALA BPS</p>
+      </div>
+
+      <!-- Garis Utama dari Kepala -->
+      <div class="connector-vertical"></div>
+
+      <!-- Cabang Horizontal -->
+      <div class="connector-horizontal-wrapper">
+        <div class="connector-horizontal"></div>
+      </div>
+
+      <div class="branch-container">
+        <!-- CABANG KIRI: KASUBBAG UMUM -->
+        <div class="branch">
+          <div class="connector-vertical"></div>
+          <div class="card">
+            <img src="img/pegawai1806/devie_triana.png" class="avatar-lg" alt="Kasubbag Umum" />
+            <h4>Devie Triana Sari, SSi. M.P.W.K.</h4>
+            <p class="nip">NIP. 198XXXXXXXXXXXXX</p>
+            <p class="role">KASUBBAG UMUM</p>
+          </div>
+
+          <!-- Garis dari Kasubbag ke Subbag Umum -->
+          <div class="connector-vertical"></div>
+          <button class="section-toggle" onclick="toggleSection('umum')">
+            JABATAN FUNGSIONAL SUBBAG UMUM
+            <span class="icon">▼</span>
+          </button>
+          <div id="section-umum" class="collapsible-content">
+            <!-- Isi disini -->
+            <!-- Aria Jaya Atmaja -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/arya.jaya.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Aria Jaya Atmaja</h5>
+                <p class="nip">NIP. 197505072006041019</p>
+                <p>Fungsional Umum Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Sujito, SE -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/sujito.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Sujito, SE</h5>
+                <p class="nip">NIP. 197005121992031001</p>
+                <p>Fungsional Umum Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Jemali -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/jemali-ppk.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Jemali</h5>
+                <p class="nip">NIP. 197205062025211028</p>
+                <p>Staf Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Marthadinata -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/marthadinata-ppk.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Marthadinata</h5>
+                <p class="nip">NIP. 198503142025211026</p>
+                <p>Staf Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Muhammad Okky Taufik -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/okkytaufik-ppk.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Muhammad Okky Taufik</h5>
+                <p class="nip">NIP. 199610082025211033</p>
+                <p>Staf Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Rismawati -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/rismawati-ppk.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Rismawati</h5>
+                <p class="nip">NIP. 199904212025212020</p>
+                <p>Staf Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Yudairi Jaka Saputra -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/yudairijaka-ppk.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Yudairi Jaka Saputra</h5>
+                <p class="nip">NIP. 199004242025211067</p>
+                <p>Staf Subbag Umum</p>
+              </div>
+            </div>
+            <!-- Sampai sini -->
+          </div>
+        </div>
+
+        <!-- CABANG KANAN: FUNGSIONAL -->
+        <div class="branch">
+          <div class="connector-vertical"></div>
+          <button class="section-toggle" onclick="toggleSection('fungsional')" style="margin-top: 0; width: 280px; height: 60px; font-size: 14px">
+            JABATAN FUNGSIONAL
+            <span class="icon">▼</span>
+          </button>
+
+          <div id="section-fungsional" class="collapsible-content">
+            <!-- Isi Disini -->
+            <!-- Siswanto, SST -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/siswanto.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Siswanto, SST</h5>
+                <p class="nip">NIP. 197603121997121001</p>
+                <p>Statistisi Madya</p>
+              </div>
+            </div>
+            <!-- Romli Afandi, S.Si. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/romli.afandi.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Romli Afandi, S.Si.</h5>
+                <p class="nip">NIP. 197808022011011004</p>
+                <p>APKAPBN Muda</p>
+              </div>
+            </div>
+            <!-- Muhammad Charridho, SST -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/charrido.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Muhammad Charridho, SST</h5>
+                <p class="nip">NIP. 198606022009021002</p>
+                <p>Statistisi Muda</p>
+              </div>
+            </div>
+            <!-- Siectio Dicko Pratama, SST., M.Sc. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/siectio_dicko.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Siectio Dicko Pratama, SST., M.Sc.</h5>
+                <p class="nip">NIP. 199110312014101002</p>
+                <p>Statistisi Muda</p>
+              </div>
+            </div>
+            <!-- Gusmalia Sari, SE -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/gusmalia.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Gusmalia Sari, SE</h5>
+                <p class="nip">NIP. 198308242005022001</p>
+                <p>Statistisi Muda</p>
+              </div>
+            </div>
+            <!-- Hanik Devianingrum, SST -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/hanik.devianingrum.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Hanik Devianingrum, SST</h5>
+                <p class="nip">NIP. 199203052014122001</p>
+                <p>Statistisi Muda</p>
+              </div>
+            </div>
+            <!-- Vivi Handayanti, SST -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/vivi.handayanti.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Vivi Handayanti, SST</h5>
+                <p class="nip">NIP. 199202012014122001</p>
+                <p>Statistisi Muda</p>
+              </div>
+            </div>
+            <!-- Adi Irawan, S.E. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/irawan.adi.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Adi Irawan, S.E.</h5>
+                <p class="nip">NIP. 197704142007011002</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Andries Siregar, SP -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/andries.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Andries Siregar, SP</h5>
+                <p class="nip">NIP. 197904172011011011</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Darwin Amri, S.P. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/amri.darwin.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Darwin Amri, S.P.</h5>
+                <p class="nip">NIP. 198508292011011007</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Devi Novanti, S.Tr.Stat. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/devinovanti.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Devi Novanti, S.Tr.Stat.</h5>
+                <p class="nip">NIP. 199911272022012002</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Dita Regi Kartika, S.Tr.Stat -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/dita.kartika.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Dita Regi Kartika, S.Tr.Stat</h5>
+                <p class="nip">NIP. 199707062019122001</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Hana Fitianingrum, S.Si. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/hana.fitia.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Hana Fitianingrum, S.Si.</h5>
+                <p class="nip">NIP. 199103112019032002</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Ismail Yusuf, SE -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/ismail.yusuf.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Ismail Yusuf, SE</h5>
+                <p class="nip">NIP. 198612252011011010</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Nur Ika Septiana, S.Stat -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/ika.septiana.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Nur Ika Septiana, S.Stat</h5>
+                <p class="nip">NIP. 199109142022032007</p>
+                <p>Statistisi Pertama</p>
+              </div>
+            </div>
+            <!-- Rizquna Nurul Fatihah, S.Tr.Stat. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/rizquna.nurul.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Rizquna Nurul Fatihah, S.Tr.Stat.</h5>
+                <p class="nip">NIP. 200106012024122003</p>
+                <p>Prakom Pertama</p>
+              </div>
+            </div>
+            <!-- Tubagus Langlang Purwasasmita, S.Tr.Stat. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/langlangpurwa.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Tubagus Langlang Purwasasmita, S.Tr.Stat.</h5>
+                <p class="nip">NIP. 200010292023021002</p>
+                <p>Prakom Pertama</p>
+              </div>
+            </div>
+            <!-- Muhammad Renaldi Syarief, A.Md.Stat. -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/renaldisyarief.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Muhammad Renaldi Syarief, A.Md.Stat.</h5>
+                <p class="nip">NIP. 200107202023021002</p>
+                <p>Statistisi Terampil</p>
+              </div>
+            </div>
+            <!-- Agustini -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/agustini.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Agustini</h5>
+                <p class="nip">NIP. 196808181994032006</p>
+                <p>Fungsional Umum</p>
+              </div>
+            </div>
+            <!-- Radius Agus Sumarlin -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/radius.as.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Radius Agus Sumarlin</h5>
+                <p class="nip">NIP. 198508082006041005</p>
+                <p>Fungsional Umum</p>
+              </div>
+            </div>
+            <!-- Ruder Yusepha Ali -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/ruder.yusepha.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Ruder Yusepha Ali</h5>
+                <p class="nip">NIP. 197409102007012001</p>
+                <p>Fungsional Umum</p>
+              </div>
+            </div>
+            <!-- Nur Hanifah Miftahul Jannah, S.Tr.Stat -->
+            <div class="staff-card">
+              <img src="img/pegawai1806/nurhanifah.png" class="avatar-sm" />
+              <div class="info">
+                <h5>Nur Hanifah Miftahul Jannah, S.Tr.Stat</h5>
+                <p class="nip">NIP. 200211122026032001</p>
+                <p>Staf BPS</p>
+              </div>
+            </div>
+            <!-- Sampai Sini -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleSection(sectionId) {
+        const content = document.getElementById('section-' + sectionId);
+        const button = content.previousElementSibling;
+
+        content.classList.toggle('open');
+        button.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
